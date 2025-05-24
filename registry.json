@@ -16,6 +16,18 @@
           "type": "registry:component"
         }
       ]
+    },
+    {
+      "name": "status-badge",
+      "type": "registry:block",
+      "title": "Status Badge",
+      "description": "Status Badge for Docker Container Statuses for Arcane",
+      "files": [
+        {
+          "path": "registry/status-badge/status-badge.svelte",
+          "type": "registry:component"
+        }
+      ]
     }
   ]
 }
