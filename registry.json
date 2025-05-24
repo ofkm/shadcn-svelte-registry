@@ -1,0 +1,21 @@
+{
+  "$schema": "https://next.shadcn-svelte.com/schema/registry.json",
+  "name": "shadcn-ofkm",
+  "homepage": "https://shadcn.ofkm.dev",
+  "items": [
+    {
+      "name": "arcane-button",
+      "type": "registry:block",
+      "title": "Arcane Button",
+      "dependencies": ["@lucide/svelte"],
+      "registryDependencies": ["button"],
+      "description": "The Button Component for the Arcane Project",
+      "files": [
+        {
+          "path": "registry/arcane-button/arcane-button.svelte",
+          "type": "registry:component"
+        }
+      ]
+    }
+  ]
+}

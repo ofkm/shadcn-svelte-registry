@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "registry:build": "shadcn-svelte registry build"
+  },
+  "dependencies": {
+    "shadcn-svelte": "^1.0.0-next.16"
+  }
+}
