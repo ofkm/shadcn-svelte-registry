@@ -29,6 +29,33 @@
           "type": "registry:component"
         }
       ]
+    },
+    {
+      "name": "loading-spinner",
+      "type": "registry:block",
+      "title": "Loading Spinner",
+      "description": "Animated loading spinner with multiple sizes and variants",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/loading/loading.svelte",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "dropdown-card",
+      "type": "registry:block",
+      "title": "Universal Dropdown Card",
+      "dependencies": ["@lucide/svelte"],
+      "registryDependencies": ["button", "card"],
+      "description": "Exandable Card with Local Storage State",
+      "files": [
+        {
+          "path": "registry/dropdown-card/dropdown-card.svelte",
+          "type": "registry:component"
+        }
+      ]
     }
   ]
 }
