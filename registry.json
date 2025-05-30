@@ -12,7 +12,7 @@
       "description": "The Button Component for the Arcane Project",
       "files": [
         {
-          "path": "registry/arcane-button/arcane-button.svelte",
+          "path": "src/lib/registry/ui/arcane-button/arcane-button.svelte",
           "type": "registry:component"
         }
       ]
@@ -25,7 +25,7 @@
       "registryDependencies": [],
       "files": [
         {
-          "path": "registry/status-badge/status-badge.svelte",
+          "path": "src/lib/registry/ui/status-badge/status-badge.svelte",
           "type": "registry:component"
         }
       ]
@@ -38,7 +38,7 @@
       "registryDependencies": [],
       "files": [
         {
-          "path": "registry/loading/loading.svelte",
+          "path": "src/lib/registry/ui/loading/loading.svelte",
           "type": "registry:component"
         }
       ]
@@ -52,7 +52,7 @@
       "description": "Exandable Card with Local Storage State",
       "files": [
         {
-          "path": "registry/dropdown-card/dropdown-card.svelte",
+          "path": "src/lib/registry/ui/dropdown-card/dropdown-card.svelte",
           "type": "registry:component"
         }
       ]
@@ -66,31 +66,31 @@
       "description": "A split button with dropdown menu functionality",
       "files": [
         {
-          "path": "registry/dropdown-button/dropdown-button.svelte",
+          "path": "src/lib/registry/ui/dropdown-button/dropdown-button.svelte",
           "type": "registry:component"
         },
         {
-          "path": "registry/dropdown-button/dropdown-button-main.svelte",
+          "path": "src/lib/registry/ui/dropdown-button/dropdown-button-main.svelte",
           "type": "registry:component"
         },
         {
-          "path": "registry/dropdown-button/dropdown-button-trigger.svelte",
+          "path": "src/lib/registry/ui/dropdown-button/dropdown-button-trigger.svelte",
           "type": "registry:component"
         },
         {
-          "path": "registry/dropdown-button/dropdown-button-content.svelte",
+          "path": "src/lib/registry/ui/dropdown-button/dropdown-button-content.svelte",
           "type": "registry:component"
         },
         {
-          "path": "registry/dropdown-button/dropdown-button-item.svelte",
+          "path": "src/lib/registry/ui/dropdown-button/dropdown-button-item.svelte",
           "type": "registry:component"
         },
         {
-          "path": "registry/dropdown-button/dropdown-button-separator.svelte",
+          "path": "src/lib/registry/ui/dropdown-button/dropdown-button-separator.svelte",
           "type": "registry:component"
         },
         {
-          "path": "registry/dropdown-button/index.ts",
+          "path": "src/lib/registry/ui/dropdown-button/index.ts",
           "type": "registry:component"
         }
       ]
