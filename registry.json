@@ -56,6 +56,44 @@
           "type": "registry:component"
         }
       ]
+    },
+    {
+      "name": "dropdown-button",
+      "type": "registry:block",
+      "title": "Dropdown Button",
+      "dependencies": ["@lucide/svelte", "bits-ui"],
+      "registryDependencies": ["button"],
+      "description": "A split button with dropdown menu functionality",
+      "files": [
+        {
+          "path": "registry/dropdown-button/dropdown-button.svelte",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/dropdown-button/dropdown-button-main.svelte",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/dropdown-button/dropdown-button-trigger.svelte",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/dropdown-button/dropdown-button-content.svelte",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/dropdown-button/dropdown-button-item.svelte",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/dropdown-button/dropdown-button-separator.svelte",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/dropdown-button/index.ts",
+          "type": "registry:component"
+        }
+      ]
     }
   ]
 }
