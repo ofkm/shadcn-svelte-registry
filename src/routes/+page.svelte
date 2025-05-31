@@ -92,7 +92,7 @@
           <Tabs.Trigger
             value="code"
             class="data-[state=active]:shadow-mini dark:data-[state=active]:bg-muted h-8 rounded-[7px] bg-transparent py-2 data-[state=active]:bg-white"
-            >Code</Tabs.Trigger
+            >Usage</Tabs.Trigger
           >
         </Tabs.List>
         <Tabs.Content
@@ -164,7 +164,7 @@
           <Tabs.Trigger
             value="code"
             class="data-[state=active]:shadow-mini dark:data-[state=active]:bg-muted h-8 rounded-[7px] bg-transparent py-2 data-[state=active]:bg-white"
-            >Code</Tabs.Trigger
+            >Usage</Tabs.Trigger
           >
         </Tabs.List>
         <Tabs.Content
