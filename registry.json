@@ -94,6 +94,20 @@
           "type": "registry:component"
         }
       ]
+    },
+    {
+      "name": "meter",
+      "type": "registry:block",
+      "title": "Meter",
+      "dependencies": ["bits-ui"],
+      "registryDependencies": [],
+      "description": "A customizable meter component with multiple variants and sizes",
+      "files": [
+        {
+          "path": "src/lib/registry/ui/meter/meter.svelte",
+          "type": "registry:component"
+        }
+      ]
     }
   ]
 }

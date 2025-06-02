@@ -1,5 +1,6 @@
 <script lang="ts">
   import * as DropdownButton from "$lib/registry/ui/dropdown-button/index.js";
+  import Meter from "$lib/registry/ui/meter/meter.svelte";
   import { Tabs } from "bits-ui";
   import { Loader2, Send } from "@lucide/svelte";
   import { onMount } from "svelte";
@@ -9,6 +10,12 @@
   let selectedOption = $state("Option 1");
   let dropdownButtonHighlightedCode = $state("");
   let statusBadgeHighlightedCode = $state("");
+  let meterHighlightedCode = $state("");
+
+  // Example meter values
+  let tokenValue = $state(3000);
+  let storageValue = $state(67);
+  let cpuValue = $state(45);
 
   onMount(async () => {
     const { createHighlighter } = await import("shiki");
@@ -52,12 +59,41 @@
   </DropdownButton.Content>
 </DropdownButton.DropdownRoot>`;
 
+    const meterCode = `<script lang="ts">
+    import Meter from '$lib/components/meter/meter.svelte';
+    
+    let tokenValue = $state(3000);
+    let storageValue = $state(67);
+<\/script>
+
+<Meter 
+  label="Tokens remaining" 
+  valueLabel="{tokenValue} / 4000" 
+  value={tokenValue} 
+  max={4000} 
+  variant="default" 
+/>
+
+<Meter 
+  label="Storage used" 
+  valueLabel="{storageValue}%" 
+  value={storageValue} 
+  max={100} 
+  variant="warning" 
+  size="lg" 
+/>`;
+
     dropdownButtonHighlightedCode = highlighter.codeToHtml(dropdownButtonCode, {
       lang: "svelte",
       theme: "dark-plus",
     });
 
     statusBadgeHighlightedCode = highlighter.codeToHtml(statusBadgeCode, {
+      lang: "svelte",
+      theme: "dark-plus",
+    });
+
+    meterHighlightedCode = highlighter.codeToHtml(meterCode, {
       lang: "svelte",
       theme: "dark-plus",
     });
@@ -194,6 +230,78 @@
             class="[&>pre]:rounded-lg [&>pre]:border [&>pre]:text-xs [&>pre]:p-4"
           >
             {@html statusBadgeHighlightedCode}
+          </div>
+        </Tabs.Content>
+      </Tabs.Root>
+    </div>
+
+    <!-- Meter -->
+    <div
+      class="relative flex min-h-[450px] flex-col gap-4 rounded-lg border p-4"
+    >
+      <h2 class="text-muted-foreground text-sm sm:pl-3">
+        Meter Component - Very similar to the default bits-ui meter.
+      </h2>
+
+      <Tabs.Root value="preview" class="w-full">
+        <Tabs.List
+          class="rounded-[9px] bg-dark-10 shadow-mini-inset dark:bg-background grid w-full grid-cols-2 gap-1 p-1 text-sm font-semibold leading-[0.01em] dark:border dark:border-neutral-600/30"
+        >
+          <Tabs.Trigger
+            value="preview"
+            class="data-[state=active]:shadow-mini dark:data-[state=active]:bg-muted h-8 rounded-[7px] bg-transparent py-2 data-[state=active]:bg-white"
+            >Preview</Tabs.Trigger
+          >
+          <Tabs.Trigger
+            value="code"
+            class="data-[state=active]:shadow-mini dark:data-[state=active]:bg-muted h-8 rounded-[7px] bg-transparent py-2 data-[state=active]:bg-white"
+            >Usage</Tabs.Trigger
+          >
+        </Tabs.List>
+        <Tabs.Content
+          value="preview"
+          class="relative flex min-h-[400px] items-center justify-center mt-4 p-4"
+        >
+          <div class="space-y-4 max-w-md w-full">
+            <Meter
+              label="Tokens remaining"
+              valueLabel="{tokenValue} / 4000"
+              value={tokenValue}
+              max={4000}
+              variant="default"
+            />
+
+            <Meter
+              label="Storage used"
+              valueLabel="{storageValue}%"
+              value={storageValue}
+              max={100}
+              variant="warning"
+              size="lg"
+            />
+
+            <Meter
+              label="CPU Usage"
+              valueLabel="{cpuValue}%"
+              value={cpuValue}
+              max={100}
+              variant="success"
+              size="sm"
+            />
+
+            <Meter
+              value={85}
+              max={100}
+              variant="destructive"
+              showLabel={false}
+            />
+          </div>
+        </Tabs.Content>
+        <Tabs.Content value="code" class="mt-4">
+          <div
+            class="[&>pre]:rounded-lg [&>pre]:border [&>pre]:text-xs [&>pre]:p-4"
+          >
+            {@html meterHighlightedCode}
           </div>
         </Tabs.Content>
       </Tabs.Root>
