@@ -44,14 +44,19 @@
       ]
     },
     {
-      "name": "loading-spinner",
+      "name": "labeled-switch",
       "type": "registry:block",
-      "title": "Loading Spinner",
-      "description": "Animated loading spinner with multiple sizes and variants",
+      "title": "Labeled Switch",
+      "description": "A switch component with a label and optional description",
+      "dependencies": ["bits-ui"],
       "registryDependencies": [],
       "files": [
         {
-          "path": "src/lib/registry/ui/loading/loading.svelte",
+          "path": "src/lib/registry/ui/labeled-switch/labeled-switch.svelte",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/lib/registry/ui/labeled-switch/index.ts",
           "type": "registry:component"
         }
       ]

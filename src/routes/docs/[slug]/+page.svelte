@@ -1,34 +1,14 @@
 <script lang="ts">
   import { error } from '@sveltejs/kit';
   import { PMCommand } from '$lib/components/ui/pm-command';
-  import DropdownButtonDemo from '$lib/components/demos/dropdown-button-demo.svelte';
-  import StatusBadgeDemo from '$lib/components/demos/status-badge-demo.svelte';
-  import MeterDemo from '$lib/components/demos/meter-demo.svelte';
+  import { getComponentByName } from '$lib/config/components.js';
   import ContentWrapper from '$lib/components/content-wrapper.svelte';
+  import ApiReference from '$lib/components/prop-defintion.svelte';
 
   const { data } = $props();
 
-  const components = {
-    'dropdown-button': {
-      title: 'Dropdown Button',
-      description: 'A customizable dropdown button component',
-      component: DropdownButtonDemo,
-    },
-    'status-badge': {
-      title: 'Status Badge',
-      description: "Status badges mirrored off GitHub's design",
-      component: StatusBadgeDemo,
-    },
-    meter: {
-      title: 'Meter',
-      description: 'A meter component similar to bits-ui meter',
-      component: MeterDemo,
-    },
-  };
-
-  type ComponentKey = keyof typeof components;
-  const slug = $derived(data.slug) as ComponentKey;
-  const componentData = $derived(components[slug]);
+  const slug = $derived(data.slug);
+  const componentConfig = $derived(getComponentByName(slug));
 
   const installCommand = $derived({
     command: 'execute' as const,
@@ -36,35 +16,44 @@
   });
 
   $effect(() => {
-    if (!componentData) {
+    if (!componentConfig) {
       error(404, 'Component not found');
     }
   });
 </script>
 
 <svelte:head>
-  <title>{componentData.title} - Components</title>
+  <title>{componentConfig?.title} - Components</title>
 </svelte:head>
-<ContentWrapper>
-  <div class="mx-auto flex min-h-svh max-w-3xl flex-col gap-8 px-4 py-8">
-    <header class="flex flex-col gap-1">
-      <h1 class="text-3xl font-bold tracking-tight">{componentData.title}</h1>
-      <p class="text-muted-foreground">{componentData.description}</p>
-    </header>
 
-    <main class="flex flex-1 flex-col gap-8">
-      <section class="flex flex-col gap-4">
-        <h2 class="text-2xl font-semibold tracking-tight">Installation</h2>
-        <div class="flex w-full flex-col gap-4">
-          <PMCommand command={installCommand.command} args={installCommand.args} />
-        </div>
-      </section>
+{#if componentConfig}
+  {@const Component = componentConfig.component}
+  <ContentWrapper>
+    <div class="mx-auto flex min-h-svh max-w-3xl flex-col gap-8 px-4 py-8">
+      <header class="flex flex-col gap-1">
+        <h1 class="text-3xl font-bold tracking-tight">{componentConfig.title}</h1>
+        <p class="text-muted-foreground">{componentConfig.description}</p>
+      </header>
 
-      <!-- Component Demo Section -->
-      <section class="flex flex-col gap-4">
-        <h2 class="text-2xl font-semibold tracking-tight">Usage</h2>
-        <svelte:component this={componentData.component} />
-      </section>
-    </main>
-  </div>
-</ContentWrapper>
+      <main class="flex flex-1 flex-col gap-8">
+        <section class="flex flex-col gap-4">
+          <h2 class="text-2xl font-semibold tracking-tight">Installation</h2>
+          <div class="flex w-full flex-col gap-4">
+            <PMCommand command={installCommand.command} args={installCommand.args} />
+          </div>
+        </section>
+
+        <section class="flex flex-col gap-4">
+          <h2 class="text-2xl font-semibold tracking-tight">Usage</h2>
+          <Component />
+        </section>
+
+        {#if componentConfig.props && componentConfig.props.length > 0}
+          <section class="flex flex-col gap-4">
+            <ApiReference props={componentConfig.props} />
+          </section>
+        {/if}
+      </main>
+    </div>
+  </ContentWrapper>
+{/if}

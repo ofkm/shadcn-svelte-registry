@@ -10,6 +10,8 @@
 
   let { icon, iconName, importPath }: Props = $props();
 
+  const IconComponent = icon;
+
   const code = `<script lang="ts">
   import ${iconName} from '${importPath}';
 <\/script>
@@ -30,18 +32,18 @@
 <DemoTabs {code}>
   <div class="flex flex-col gap-6">
     <div class="flex items-center gap-4">
-      <svelte:component this={icon} class="size-4" />
-      <svelte:component this={icon} class="size-6" />
-      <svelte:component this={icon} class="size-8" />
-      <svelte:component this={icon} class="size-12" />
-      <svelte:component this={icon} class="size-16" />
+      <IconComponent class="size-4" />
+      <IconComponent class="size-6" />
+      <IconComponent class="size-8" />
+      <IconComponent class="size-12" />
+      <IconComponent class="size-16" />
     </div>
 
     <div class="flex items-center gap-4">
-      <svelte:component this={icon} class="size-8 text-foreground hover:text-muted-foreground transition-colors cursor-pointer" />
-      <svelte:component this={icon} class="size-8 text-blue-500" />
-      <svelte:component this={icon} class="size-8 text-green-500" />
-      <svelte:component this={icon} class="size-8 text-red-500" />
+      <IconComponent class="size-8 text-foreground hover:text-muted-foreground transition-colors cursor-pointer" />
+      <IconComponent class="size-8 text-blue-500" />
+      <IconComponent class="size-8 text-green-500" />
+      <IconComponent class="size-8 text-red-500" />
     </div>
   </div>
 </DemoTabs>

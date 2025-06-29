@@ -1,4 +1,5 @@
 import { iconsConfig } from './icons.js';
+import { componentsConfig } from './components.js';
 
 export const mainNavItems = [
   // { href: '/docs/icons', label: 'Icons' }
@@ -28,9 +29,11 @@ export const SidebarNavItems: SidebarNavItem[] = [
   {
     title: 'Components',
     items: [
-      { title: 'Dropdown Button', href: '/docs/dropdown-button', items: [] },
-      { title: 'Meter', href: '/docs/meter', items: [] },
-      { title: 'Status Badge', href: '/docs/status-badge', items: [] },
+      ...componentsConfig.map((component) => ({
+        title: component.title,
+        href: component.href,
+        items: [] as SidebarNavItem[],
+      })),
     ],
   },
   {
