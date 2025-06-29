@@ -1,5 +1,5 @@
 {
-  "$schema": "https://next.shadcn-svelte.com/schema/registry.json",
+  "$schema": "https://shadcn-svelte.com/schema/registry.json",
   "name": "shadcn-ofkm",
   "homepage": "https://shadcn.ofkm.dev",
   "items": [
@@ -26,6 +26,19 @@
       "files": [
         {
           "path": "src/lib/registry/ui/status-badge/status-badge.svelte",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "github-icon",
+      "type": "registry:block",
+      "title": "GitHub Icon",
+      "description": "GitHub SVG Icon",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/lib/registry/ui/icons/github/github.svelte",
           "type": "registry:component"
         }
       ]

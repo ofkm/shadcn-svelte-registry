@@ -1,0 +1,1 @@
+export { default as DemoTabs } from './demo-tabs.svelte';

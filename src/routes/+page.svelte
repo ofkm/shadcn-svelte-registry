@@ -1,310 +1,67 @@
 <script lang="ts">
-  import * as DropdownButton from "$lib/registry/ui/dropdown-button/index.js";
-  import Meter from "$lib/registry/ui/meter/meter.svelte";
-  import { Tabs } from "bits-ui";
-  import { Loader2, Send } from "@lucide/svelte";
-  import { onMount } from "svelte";
-  import StatusBadge from "$lib/registry/ui/status-badge/status-badge.svelte";
+  import { Button } from '$lib/components/ui/button/index.js';
+  import { Badge } from '$lib/components/ui/badge/index.js';
+  import StatusBadge from '$lib/registry/ui/status-badge/status-badge.svelte';
+  import { DropdownButton } from '$lib/registry/ui/dropdown-button/index.js';
+  import Meter from '$lib/registry/ui/meter/meter.svelte';
+  import { ArrowRight } from '@lucide/svelte';
 
-  let saving = false;
-  let selectedOption = $state("Option 1");
-  let dropdownButtonHighlightedCode = $state("");
-  let statusBadgeHighlightedCode = $state("");
-  let meterHighlightedCode = $state("");
-
-  // Example meter values
-  let tokenValue = $state(3000);
-  let storageValue = $state(67);
-  let cpuValue = $state(45);
-
-  onMount(async () => {
-    const { createHighlighter } = await import("shiki");
-    const highlighter = await createHighlighter({
-      themes: ["dark-plus"],
-      langs: ["svelte"],
-    });
-
-    const statusBadgeCode = `<script lang="ts">
-	import StatusBadge from '$lib/components/badges/status-badge.svelte';
-<\/script>
-
-<StatusBadge text="Remote" variant="blue" />`;
-
-    const dropdownButtonCode = `<DropdownButton.DropdownRoot>
-  <DropdownButton.Root>
-    <DropdownButton.Main variant="outline" disabled={false}>
-      {#if saving}
-        <Loader2 class="size-4 mr-2 animate-spin" />
-      {:else}
-        <Send class="size-4 mr-2" />
-      {/if}
-      {selectedOption}
-    </DropdownButton.Main>
-
-    <DropdownButton.DropdownTrigger>
-      <DropdownButton.Trigger variant="outline" disabled={saving} />
-    </DropdownButton.DropdownTrigger>
-  </DropdownButton.Root>
-
-  <DropdownButton.Content align="end" class="min-w-[200px]">
-    <DropdownButton.Item onclick={() => (selectedOption = "Option 1")}>
-      Option 1
-    </DropdownButton.Item>
-    <DropdownButton.Item onclick={() => (selectedOption = "Option 2")}>
-      Option 2
-    </DropdownButton.Item>
-    <DropdownButton.Item onclick={() => (selectedOption = "Option 3")}>
-      Option 3
-    </DropdownButton.Item>
-  </DropdownButton.Content>
-</DropdownButton.DropdownRoot>`;
-
-    const meterCode = `<script lang="ts">
-    import Meter from '$lib/components/meter/meter.svelte';
-    
-    let tokenValue = $state(3000);
-    let storageValue = $state(67);
-<\/script>
-
-<Meter 
-  label="Tokens remaining" 
-  valueLabel="{tokenValue} / 4000" 
-  value={tokenValue} 
-  max={4000} 
-  variant="default" 
-/>
-
-<Meter 
-  label="Storage used" 
-  valueLabel="{storageValue}%" 
-  value={storageValue} 
-  max={100} 
-  variant="warning" 
-  size="lg" 
-/>`;
-
-    dropdownButtonHighlightedCode = highlighter.codeToHtml(dropdownButtonCode, {
-      lang: "svelte",
-      theme: "dark-plus",
-    });
-
-    statusBadgeHighlightedCode = highlighter.codeToHtml(statusBadgeCode, {
-      lang: "svelte",
-      theme: "dark-plus",
-    });
-
-    meterHighlightedCode = highlighter.codeToHtml(meterCode, {
-      lang: "svelte",
-      theme: "dark-plus",
-    });
-  });
+  // Demo options for dropdown button
+  const options = [
+    { label: 'Save as Draft', value: 'draft', onclick: () => {} },
+    { label: 'Save and Publish', value: 'publish', onclick: () => {} },
+    { label: 'Save Template', value: 'template', onclick: () => {} },
+  ];
 </script>
 
-<div class="mx-auto flex min-h-svh max-w-3xl flex-col gap-8 px-4 py-8">
-  <header class="flex flex-col gap-1">
-    <h1 class="text-3xl font-bold tracking-tight">Components</h1>
-    <p class="text-muted-foreground">
-      Custom shadcn-svelte components I have created for projects.
-    </p>
-  </header>
-  <main class="flex flex-1 flex-col gap-8">
-    <!-- Dropdown Button Component -->
-    <div
-      class="relative flex min-h-[450px] flex-col gap-4 rounded-lg border p-4"
-    >
-      <h2 class="text-muted-foreground text-sm sm:pl-3">
-        Dropdown Menu Button
-      </h2>
+<svelte:head>
+  <title>OFKM shadcn Registry - Custom Components</title>
+  <meta name="description" content="Custom components for shadcn-svelte. Copy, paste, and own your code." />
+</svelte:head>
 
-      <Tabs.Root value="preview" class="w-full">
-        <Tabs.List
-          class="rounded-[9px] bg-dark-10 shadow-mini-inset dark:bg-background grid w-full grid-cols-2 gap-1 p-1 text-sm font-semibold leading-[0.01em] dark:border dark:border-neutral-600/30"
-        >
-          <Tabs.Trigger
-            value="preview"
-            class="data-[state=active]:shadow-mini dark:data-[state=active]:bg-muted h-8 rounded-[7px] bg-transparent py-2 data-[state=active]:bg-white"
-            >Preview</Tabs.Trigger
-          >
-          <Tabs.Trigger
-            value="code"
-            class="data-[state=active]:shadow-mini dark:data-[state=active]:bg-muted h-8 rounded-[7px] bg-transparent py-2 data-[state=active]:bg-white"
-            >Usage</Tabs.Trigger
-          >
-        </Tabs.List>
-        <Tabs.Content
-          value="preview"
-          class="relative flex min-h-[400px] items-center justify-center mt-4"
-        >
-          <DropdownButton.DropdownRoot>
-            <DropdownButton.Root>
-              <DropdownButton.Main variant="outline" disabled={false}>
-                {#if saving}
-                  <Loader2 class="size-4 mr-2 animate-spin" />
-                {:else}
-                  <Send class="size-4 mr-2" />
-                {/if}
-                {selectedOption}
-              </DropdownButton.Main>
+<section class="relative overflow-hidden bg-background py-24 sm:py-32">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="mx-auto max-w-2xl text-center">
+      <Badge variant="secondary" class="mb-4">Component Registry</Badge>
+      <h1 class="text-4xl font-bold tracking-tight text-foreground sm:text-6xl">Custom Components</h1>
+      <p class="mt-6 text-lg leading-8 text-muted-foreground">100% fully compatible with shadcn-svelte. Copy, paste, and own your code.</p>
+      <p class="mt-2 text-sm text-muted-foreground">Props to the shadcn-svelte team for making such a great library.</p>
+      <div class="mt-10 flex items-center justify-center gap-x-6">
+        <Button href="/docs" class="group">
+          Get Started
+          <ArrowRight class="ml-2 size-4 transition-transform group-hover:translate-x-1" />
+        </Button>
+        <Button variant="outline" href="https://github.com/ofkm/shadcn-registry">GitHub</Button>
+      </div>
+    </div>
+  </div>
+</section>
 
-              <DropdownButton.DropdownTrigger>
-                <DropdownButton.Trigger variant="outline" disabled={saving} />
-              </DropdownButton.DropdownTrigger>
-            </DropdownButton.Root>
-
-            <DropdownButton.Content align="end" class="min-w-[200px]">
-              <DropdownButton.Item
-                onclick={() => (selectedOption = "Option 1")}
-              >
-                Option 1
-              </DropdownButton.Item>
-              <DropdownButton.Item
-                onclick={() => (selectedOption = "Option 2")}
-              >
-                Option 2
-              </DropdownButton.Item>
-              <DropdownButton.Item
-                onclick={() => (selectedOption = "Option 3")}
-              >
-                Option 3
-              </DropdownButton.Item>
-            </DropdownButton.Content>
-          </DropdownButton.DropdownRoot>
-        </Tabs.Content>
-        <Tabs.Content value="code" class="mt-4">
-          <div
-            class="[&>pre]:rounded-lg [&>pre]:border [&>pre]:text-xs [&>pre]:p-4"
-          >
-            {@html dropdownButtonHighlightedCode}
-          </div>
-        </Tabs.Content>
-      </Tabs.Root>
+<section class="py-24 sm:py-32 bg-muted/30">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="mx-auto max-w-2xl text-center">
+      <h2 class="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">Preview</h2>
     </div>
 
-    <!-- Status Badge Component -->
-    <div
-      class="relative flex min-h-[450px] flex-col gap-4 rounded-lg border p-4"
-    >
-      <h2 class="text-muted-foreground text-sm sm:pl-3">
-        Status Badge - Mirrored off Github's design.
-      </h2>
+    <div class="mt-16 flex flex-col items-center justify-center space-y-8">
+      <div class="rounded-lg border bg-background p-8 shadow-sm">
+        <div class="flex flex-col items-center space-y-6">
+          <div class="flex flex-wrap items-center justify-center gap-4">
+            <DropdownButton mainButtonText="Actions" {options} variant="default" />
 
-      <Tabs.Root value="preview" class="w-full">
-        <Tabs.List
-          class="rounded-[9px] bg-dark-10 shadow-mini-inset dark:bg-background grid w-full grid-cols-2 gap-1 p-1 text-sm font-semibold leading-[0.01em] dark:border dark:border-neutral-600/30"
-        >
-          <Tabs.Trigger
-            value="preview"
-            class="data-[state=active]:shadow-mini dark:data-[state=active]:bg-muted h-8 rounded-[7px] bg-transparent py-2 data-[state=active]:bg-white"
-            >Preview</Tabs.Trigger
-          >
-          <Tabs.Trigger
-            value="code"
-            class="data-[state=active]:shadow-mini dark:data-[state=active]:bg-muted h-8 rounded-[7px] bg-transparent py-2 data-[state=active]:bg-white"
-            >Usage</Tabs.Trigger
-          >
-        </Tabs.List>
-        <Tabs.Content
-          value="preview"
-          class="relative grid grid-cols-3 sm:grid-cols-5 md:grid-cols-6 gap-x-2 gap-y-4 min-h-[400px] place-content-center mt-4 p-4"
-        >
-          <StatusBadge text="red" variant="red" />
-          <StatusBadge text="purple" variant="purple" />
-          <StatusBadge text="green" variant="green" />
-          <StatusBadge text="blue" variant="blue" />
-          <StatusBadge text="gray" variant="gray" />
-          <StatusBadge text="amber" variant="amber" />
-          <StatusBadge text="pink" variant="pink" />
-          <StatusBadge text="indigo" variant="indigo" />
-          <StatusBadge text="cyan" variant="cyan" />
-          <StatusBadge text="lime" variant="lime" />
-          <StatusBadge text="emerald" variant="emerald" />
-          <StatusBadge text="teal" variant="teal" />
-          <StatusBadge text="sky" variant="sky" />
-          <StatusBadge text="violet" variant="violet" />
-          <StatusBadge text="fuchsia" variant="fuchsia" />
-          <StatusBadge text="rose" variant="rose" />
-          <StatusBadge text="orange" variant="orange" />
-        </Tabs.Content>
-        <Tabs.Content value="code" class="mt-4">
-          <div
-            class="[&>pre]:rounded-lg [&>pre]:border [&>pre]:text-xs [&>pre]:p-4"
-          >
-            {@html statusBadgeHighlightedCode}
+            <div class="flex gap-2">
+              <StatusBadge text="Active" variant="green" />
+              <StatusBadge text="Pending" variant="amber" />
+              <StatusBadge text="Error" variant="red" />
+            </div>
           </div>
-        </Tabs.Content>
-      </Tabs.Root>
+
+          <div class="w-full max-w-sm space-y-3">
+            <Meter value={75} max={100} />
+            <Meter value={45} max={100} />
+          </div>
+        </div>
+      </div>
     </div>
-
-    <!-- Meter -->
-    <div
-      class="relative flex min-h-[450px] flex-col gap-4 rounded-lg border p-4"
-    >
-      <h2 class="text-muted-foreground text-sm sm:pl-3">
-        Meter Component - Very similar to the default bits-ui meter.
-      </h2>
-
-      <Tabs.Root value="preview" class="w-full">
-        <Tabs.List
-          class="rounded-[9px] bg-dark-10 shadow-mini-inset dark:bg-background grid w-full grid-cols-2 gap-1 p-1 text-sm font-semibold leading-[0.01em] dark:border dark:border-neutral-600/30"
-        >
-          <Tabs.Trigger
-            value="preview"
-            class="data-[state=active]:shadow-mini dark:data-[state=active]:bg-muted h-8 rounded-[7px] bg-transparent py-2 data-[state=active]:bg-white"
-            >Preview</Tabs.Trigger
-          >
-          <Tabs.Trigger
-            value="code"
-            class="data-[state=active]:shadow-mini dark:data-[state=active]:bg-muted h-8 rounded-[7px] bg-transparent py-2 data-[state=active]:bg-white"
-            >Usage</Tabs.Trigger
-          >
-        </Tabs.List>
-        <Tabs.Content
-          value="preview"
-          class="relative flex min-h-[400px] items-center justify-center mt-4 p-4"
-        >
-          <div class="space-y-4 max-w-md w-full">
-            <Meter
-              label="Tokens remaining"
-              valueLabel="{tokenValue} / 4000"
-              value={tokenValue}
-              max={4000}
-              variant="default"
-            />
-
-            <Meter
-              label="Storage used"
-              valueLabel="{storageValue}%"
-              value={storageValue}
-              max={100}
-              variant="warning"
-              size="lg"
-            />
-
-            <Meter
-              label="CPU Usage"
-              valueLabel="{cpuValue}%"
-              value={cpuValue}
-              max={100}
-              variant="success"
-              size="sm"
-            />
-
-            <Meter
-              value={85}
-              max={100}
-              variant="destructive"
-              showLabel={false}
-            />
-          </div>
-        </Tabs.Content>
-        <Tabs.Content value="code" class="mt-4">
-          <div
-            class="[&>pre]:rounded-lg [&>pre]:border [&>pre]:text-xs [&>pre]:p-4"
-          >
-            {@html meterHighlightedCode}
-          </div>
-        </Tabs.Content>
-      </Tabs.Root>
-    </div>
-  </main>
-</div>
+  </div>
+</section>
