@@ -23,7 +23,7 @@
   });
 </script>
 
-<Button href="https://github.com/ofkm/arcane" target="_blank" rel="noreferrer" size="sm" variant="ghost" class="h-8 shadow-none">
+<Button href="https://github.com/ofkm/shadcn-svelte-registry" target="_blank" rel="noreferrer" size="sm" variant="ghost" class="h-8 shadow-none">
   <GithubIcon class="size-4" />
   <span class="text-muted-foreground text-xs tabular-nums">
     {stars >= 1000 ? `${(stars / 1000).toFixed(1)}k` : stars.toLocaleString()}
