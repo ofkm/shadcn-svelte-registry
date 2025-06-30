@@ -132,6 +132,20 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "table-states",
+      "type": "registry:lib",
+      "title": "Table States",
+      "dependencies": ["runed"],
+      "registryDependencies": [],
+      "description": "A collection of utilities for managing table state including pagination, sorting, and filtering with persistent storage",
+      "files": [
+        {
+          "path": "src/lib/registry/utils/table-states.ts",
+          "type": "registry:lib"
+        }
+      ]
     }
   ]
 }

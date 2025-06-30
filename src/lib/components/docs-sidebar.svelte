@@ -4,7 +4,7 @@
   import { SidebarNavItems } from '$lib/config/navigation.js';
   import type { SidebarNavItem } from '$lib/config/navigation';
   import type { ComponentProps } from 'svelte';
-  import { BookOpen, Layers, Palette } from '@lucide/svelte';
+  import { BookOpen, Layers, Palette, Settings } from '@lucide/svelte';
   import { Button } from '$lib/registry/ui/button/index.js';
   import NewBadge from '$lib/components/ui/new-badge.svelte';
 
@@ -17,6 +17,7 @@
     'Get Started': BookOpen,
     Components: Layers,
     Icons: Palette,
+    Utils: Settings,
   };
 
   function handleAnchorClick(event: Event, href: string) {
@@ -56,14 +57,14 @@
                         >
                           {subItem.title}
                           {#if subItem.new}
-                            <NewBadge />
+                            <NewBadge class="ml-2" />
                           {/if}
                         </a>
                       {:else}
                         <a href={subItem.href} class="block w-full rounded-md px-2 py-1.5 text-sm transition-colors hover:bg-muted/50 {subItem.href === pathname ? 'bg-muted font-medium text-foreground' : 'text-muted-foreground'}">
                           {subItem.title}
                           {#if subItem.new}
-                            <NewBadge />
+                            <NewBadge class="ml-2" />
                           {/if}
                         </a>
                       {/if}
