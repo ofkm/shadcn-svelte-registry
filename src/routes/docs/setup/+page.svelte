@@ -50,7 +50,7 @@
 
     <div class="my-6">
       <p class="text-sm font-medium mb-3">General command:</p>
-      <PMCommand variant="secondary" command="add" args={['-r https://shadcn.ofkm.dev/r/[component-name].json']} />
+      <PMCommand variant="secondary" command="execute" args={['shadcn-svelte add https://shadcn.ofkm.dev/r/[component-name].json']} />
     </div>
   </section>
 
