@@ -5,33 +5,33 @@
   "items": [
     {
       "name": "status-badge",
-      "type": "registry:block",
+      "type": "registry:ui",
       "title": "Status Badge",
       "description": "Status Badge for Docker Container Statuses for Arcane",
       "registryDependencies": [],
       "files": [
         {
           "path": "src/lib/registry/ui/status-badge/status-badge.svelte",
-          "type": "registry:component"
+          "type": "registry:ui"
         }
       ]
     },
     {
       "name": "github-icon",
-      "type": "registry:block",
+      "type": "registry:ui",
       "title": "GitHub Icon",
       "description": "GitHub SVG Icon",
       "registryDependencies": [],
       "files": [
         {
           "path": "src/lib/registry/ui/icons/github/github.svelte",
-          "type": "registry:component"
+          "type": "registry:ui"
         }
       ]
     },
     {
       "name": "labeled-switch",
-      "type": "registry:block",
+      "type": "registry:ui",
       "title": "Labeled Switch",
       "description": "A switch component with a label and optional description",
       "dependencies": ["bits-ui"],
@@ -39,17 +39,17 @@
       "files": [
         {
           "path": "src/lib/registry/ui/labeled-switch/labeled-switch.svelte",
-          "type": "registry:component"
+          "type": "registry:ui"
         },
         {
           "path": "src/lib/registry/ui/labeled-switch/index.ts",
-          "type": "registry:component"
+          "type": "registry:ui"
         }
       ]
     },
     {
       "name": "dropdown-button",
-      "type": "registry:block",
+      "type": "registry:ui",
       "title": "Dropdown Button",
       "dependencies": ["@lucide/svelte", "bits-ui"],
       "registryDependencies": ["button"],
@@ -57,37 +57,37 @@
       "files": [
         {
           "path": "src/lib/registry/ui/dropdown-button/dropdown-button.svelte",
-          "type": "registry:component"
+          "type": "registry:ui"
         },
         {
           "path": "src/lib/registry/ui/dropdown-button/dropdown-button-main.svelte",
-          "type": "registry:component"
+          "type": "registry:ui"
         },
         {
           "path": "src/lib/registry/ui/dropdown-button/dropdown-button-trigger.svelte",
-          "type": "registry:component"
+          "type": "registry:ui"
         },
         {
           "path": "src/lib/registry/ui/dropdown-button/dropdown-button-content.svelte",
-          "type": "registry:component"
+          "type": "registry:ui"
         },
         {
           "path": "src/lib/registry/ui/dropdown-button/dropdown-button-item.svelte",
-          "type": "registry:component"
+          "type": "registry:ui"
         },
         {
           "path": "src/lib/registry/ui/dropdown-button/dropdown-button-separator.svelte",
-          "type": "registry:component"
+          "type": "registry:ui"
         },
         {
           "path": "src/lib/registry/ui/dropdown-button/index.ts",
-          "type": "registry:component"
+          "type": "registry:ui"
         }
       ]
     },
     {
       "name": "collapsible-card",
-      "type": "registry:block",
+      "type": "registry:ui",
       "title": "Collapsible Card",
       "dependencies": ["@lucide/svelte", "bits-ui"],
       "registryDependencies": [],
@@ -95,33 +95,33 @@
       "files": [
         {
           "path": "src/lib/registry/ui/collapsible-card/collapsible-card.svelte",
-          "type": "registry:component"
+          "type": "registry:ui"
         },
         {
           "path": "src/lib/registry/ui/collapsible-card/collapsible-card-trigger.svelte",
-          "type": "registry:component"
+          "type": "registry:ui"
         },
         {
           "path": "src/lib/registry/ui/collapsible-card/collapsible-card-header.svelte",
-          "type": "registry:component"
+          "type": "registry:ui"
         },
         {
           "path": "src/lib/registry/ui/collapsible-card/collapsible-card-content.svelte",
-          "type": "registry:component"
+          "type": "registry:ui"
         },
         {
           "path": "src/lib/registry/ui/collapsible-card/collapsible-card-body.svelte",
-          "type": "registry:component"
+          "type": "registry:ui"
         },
         {
           "path": "src/lib/registry/ui/collapsible-card/index.ts",
-          "type": "registry:component"
+          "type": "registry:ui"
         }
       ]
     },
     {
       "name": "meter",
-      "type": "registry:block",
+      "type": "registry:ui",
       "title": "Meter",
       "dependencies": ["bits-ui"],
       "registryDependencies": [],
@@ -129,7 +129,7 @@
       "files": [
         {
           "path": "src/lib/registry/ui/meter/meter.svelte",
-          "type": "registry:component"
+          "type": "registry:ui"
         }
       ]
     }
