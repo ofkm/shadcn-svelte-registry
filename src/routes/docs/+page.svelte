@@ -44,16 +44,5 @@
 
   <p class="leading-7 [&:not(:first-child)]:mt-6">Or browse the components in the sidebar to see examples and copy the code directly.</p>
 
-  <h2 class="font-heading mt-8 scroll-m-20 text-2xl font-semibold tracking-tight first:mt-0">Available Components</h2>
-  <p class="leading-7 [&:not(:first-child)]:mt-6">Each component is designed to solve a specific use case:</p>
-
-  <ul class="my-6 ml-6 list-disc [&>li]:mt-2">
-    <li><strong>Dropdown Button</strong> - Split button with dropdown menu functionality</li>
-    <li><strong>Collapsible Card</strong> - Modern collapsible content containers</li>
-    <li><strong>Labeled Switch</strong> - Switches with integrated labels and descriptions</li>
-    <li><strong>Status Badge</strong> - GitHub-style status badges</li>
-    <li><strong>Meter</strong> - Progress indicators with multiple variants</li>
-  </ul>
-
   <p class="leading-7 [&:not(:first-child)]:mt-6">All components follow the same patterns you're familiar with from shadcn-svelte, so they'll feel natural to use in your projects.</p>
 </div>
