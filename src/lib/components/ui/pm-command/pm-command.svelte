@@ -46,7 +46,7 @@
 <div class={cn(style({ variant }), className)}>
   <div class="border-border flex place-items-center justify-between gap-2 border-b py-1 pr-2">
     <div class="flex place-items-center gap-2 px-2">
-      <div class="bg-foreground rounded-sm flex size-4 place-items-center justify-center opacity-50">
+      <div class="bg-foreground rounded flex size-4 place-items-center justify-center opacity-50">
         <TerminalIcon class="text-background size-3" />
       </div>
       <Tabs.Root bind:value={agent}>

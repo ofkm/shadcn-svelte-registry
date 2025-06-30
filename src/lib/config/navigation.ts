@@ -12,6 +12,7 @@ export type NavItem = {
   external?: boolean;
   label?: string;
   anchor?: boolean;
+  new?: boolean;
 };
 
 export type SidebarNavItem = NavItem & {
@@ -32,6 +33,7 @@ export const SidebarNavItems: SidebarNavItem[] = [
       ...componentsConfig.map((component) => ({
         title: component.title,
         href: component.href,
+        new: component.new,
         items: [] as SidebarNavItem[],
       })),
     ],

@@ -14,6 +14,7 @@ export type ComponentConfig = {
   href: string;
   registryName: string;
   props?: PropDefinition[];
+  new?: boolean;
 };
 
 export const componentsConfig: ComponentConfig[] = [
@@ -90,6 +91,7 @@ export const componentsConfig: ComponentConfig[] = [
     component: CollapsibleCardDemo,
     href: '/docs/collapsible-card',
     registryName: 'collapsible-card',
+    new: true,
     props: [
       {
         name: 'ref',

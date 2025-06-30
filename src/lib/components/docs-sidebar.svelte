@@ -1,10 +1,12 @@
 <script lang="ts">
   import * as Sidebar from '$lib/components/ui/sidebar/index.js';
   import { page } from '$app/state';
+  import { SidebarNavItems } from '$lib/config/navigation.js';
   import type { SidebarNavItem } from '$lib/config/navigation';
   import type { ComponentProps } from 'svelte';
   import { BookOpen, Layers, Palette } from '@lucide/svelte';
   import { Button } from '$lib/registry/ui/button/index.js';
+  import NewBadge from '$lib/components/ui/new-badge.svelte';
 
   let { navItems, ...restProps }: { navItems: SidebarNavItem[] } & ComponentProps<typeof Sidebar.Root> = $props();
 
@@ -53,10 +55,16 @@
                           class="block w-full rounded-md px-2 py-1.5 text-sm transition-colors hover:bg-muted/50 {subItem.href === pathname ? 'bg-muted font-medium text-foreground' : 'text-muted-foreground'}"
                         >
                           {subItem.title}
+                          {#if subItem.new}
+                            <NewBadge />
+                          {/if}
                         </a>
                       {:else}
                         <a href={subItem.href} class="block w-full rounded-md px-2 py-1.5 text-sm transition-colors hover:bg-muted/50 {subItem.href === pathname ? 'bg-muted font-medium text-foreground' : 'text-muted-foreground'}">
                           {subItem.title}
+                          {#if subItem.new}
+                            <NewBadge />
+                          {/if}
                         </a>
                       {/if}
                     </Sidebar.MenuItem>
