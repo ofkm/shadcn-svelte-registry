@@ -29,7 +29,7 @@
 {#if componentConfig}
   {@const Component = componentConfig.component}
   <ContentWrapper>
-    <div class="mx-auto flex min-h-svh max-w-3xl flex-col gap-8 px-4 py-8">
+    <div class="mx-auto flex min-h-svh max-w-3xl flex-col gap-8 px-4">
       <header class="flex flex-col gap-1">
         <h1 class="text-3xl font-bold tracking-tight">{componentConfig.title}</h1>
         <p class="text-muted-foreground">{componentConfig.description}</p>

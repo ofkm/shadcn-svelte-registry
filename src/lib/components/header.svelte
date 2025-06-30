@@ -4,7 +4,7 @@
   import ModeSwitcher from './modeswitcher.svelte';
 </script>
 
-<header class="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+<header class="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 mb-10">
   <div class="flex h-[70px] w-full items-center pl-4 pr-2">
     <div class="flex pl-5">
       <a href="/" class="mr-6 flex items-center space-x-2">
