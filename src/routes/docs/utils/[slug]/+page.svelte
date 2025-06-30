@@ -11,8 +11,8 @@
   const utilConfig = $derived(getUtilByName(slug));
 
   const installCommand = $derived({
-    command: 'add' as const,
-    args: [`-r https://shadcn.ofkm.dev/r/${slug}.json`],
+    command: 'execute' as const,
+    args: [`shadcn-svelte add https://shadcn.ofkm.dev/r/${slug}.json`],
   });
 
   $effect(() => {
