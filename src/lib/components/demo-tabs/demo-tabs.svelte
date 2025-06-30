@@ -14,7 +14,6 @@
 </script>
 
 <Tabs.Root value="preview" class="w-full {className}">
-  <!-- Tab Headers - Outside the container -->
   <div class="flex items-center justify-start mb-4">
     <Tabs.List class="grid w-fit grid-cols-2 bg-transparent p-0 gap-1">
       <Tabs.Trigger value="preview" class="rounded-md px-4 py-2 text-sm font-medium transition-all data-[state=active]:bg-foreground data-[state=active]:text-background data-[state=inactive]:text-muted-foreground hover:text-foreground">

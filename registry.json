@@ -4,20 +4,6 @@
   "homepage": "https://shadcn.ofkm.dev",
   "items": [
     {
-      "name": "arcane-button",
-      "type": "registry:block",
-      "title": "Arcane Button",
-      "dependencies": ["@lucide/svelte"],
-      "registryDependencies": ["button"],
-      "description": "The Button Component for the Arcane Project",
-      "files": [
-        {
-          "path": "src/lib/registry/ui/arcane-button/arcane-button.svelte",
-          "type": "registry:component"
-        }
-      ]
-    },
-    {
       "name": "status-badge",
       "type": "registry:block",
       "title": "Status Badge",
@@ -62,20 +48,6 @@
       ]
     },
     {
-      "name": "dropdown-card",
-      "type": "registry:block",
-      "title": "Universal Dropdown Card",
-      "dependencies": ["@lucide/svelte"],
-      "registryDependencies": ["button", "card"],
-      "description": "Exandable Card with Local Storage State",
-      "files": [
-        {
-          "path": "src/lib/registry/ui/dropdown-card/dropdown-card.svelte",
-          "type": "registry:component"
-        }
-      ]
-    },
-    {
       "name": "dropdown-button",
       "type": "registry:block",
       "title": "Dropdown Button",
@@ -109,6 +81,40 @@
         },
         {
           "path": "src/lib/registry/ui/dropdown-button/index.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "collapsible-card",
+      "type": "registry:block",
+      "title": "Collapsible Card",
+      "dependencies": ["@lucide/svelte", "bits-ui"],
+      "registryDependencies": [],
+      "description": "A modern collapsible card component with simple and composable modes",
+      "files": [
+        {
+          "path": "src/lib/registry/ui/collapsible-card/collapsible-card.svelte",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/lib/registry/ui/collapsible-card/collapsible-card-trigger.svelte",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/lib/registry/ui/collapsible-card/collapsible-card-header.svelte",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/lib/registry/ui/collapsible-card/collapsible-card-content.svelte",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/lib/registry/ui/collapsible-card/collapsible-card-body.svelte",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/lib/registry/ui/collapsible-card/index.ts",
           "type": "registry:component"
         }
       ]

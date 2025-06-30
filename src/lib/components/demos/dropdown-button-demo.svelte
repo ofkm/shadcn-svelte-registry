@@ -28,15 +28,6 @@ function handleMainSave() {
 }
 <\/script>
 
-// Simple usage
-<DropdownButton 
-  mainButtonText="Save" 
-  {options} 
-  onMainButtonClick={handleMainSave} 
-  variant="default" 
-/>
-
-// Outline variant
 <DropdownButton 
   mainButtonText="Actions" 
   {options} 
@@ -67,8 +58,7 @@ function handleMainSave() {
 </script>
 
 <DemoTabs {code}>
-  <div class="space-y-4">
-    <DropdownButton mainButtonText="Save" {options} onMainButtonClick={handleMainSave} variant="default" />
-    <DropdownButton mainButtonText="Actions" {options} variant="outline" />
+  <div class="space-y-4 items-center">
+    <DropdownButton mainButtonText="Actions" {options} onMainButtonClick={handleMainSave} variant="outline" />
   </div>
 </DemoTabs>

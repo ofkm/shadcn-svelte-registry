@@ -22,31 +22,10 @@
   </aside>
 
   <main class="flex-1 overflow-y-auto lg:ml-64">
-    <div class="mx-auto max-w-4xl p-10">
-      <!-- Page Navigation -->
-      <div class="flex items-center justify-between mb-8">
-        <div>
-          {#if previousPage}
-            <Button href={previousPage.href} variant="ghost" size="sm">
-              <ArrowLeft class="mr-1 size-4" />
-              Previous
-            </Button>
-          {/if}
-        </div>
-        <div>
-          {#if nextPage}
-            <Button href={nextPage.href} variant="ghost" size="sm">
-              Next
-              <ArrowRight class="ml-1 size-4" />
-            </Button>
-          {/if}
-        </div>
-      </div>
-
+    <div class="mx-auto max-w-4xl pb-10">
       <!-- Page Content -->
       {@render children?.()}
 
-      <!-- Bottom Navigation (optional - for better UX) -->
       <div class="flex items-center justify-between mt-16 pt-8 border-t">
         <div>
           {#if previousPage}

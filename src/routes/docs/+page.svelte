@@ -4,64 +4,56 @@
 
 <svelte:head>
   <title>Introduction - OFKM shadcn-svelte Registry</title>
-  <meta name="description" content="Custom shadcn-svelte components built with Bits UI and Tailwind CSS." />
+  <meta name="description" content="A personal collection of shadcn-svelte components built with Bits UI and Tailwind CSS." />
 </svelte:head>
 
-<!-- Remove the navigation div and mx-auto max-w-4xl wrapper -->
 <header class="mb-8">
-  <h1 class="text-4xl font-bold tracking-tight mb-4">Introduction</h1>
-  <p class="text-xl text-muted-foreground">Custom re-usable components for SvelteKit Projects</p>
+  <h1 class="text-4xl font-bold tracking-tight mb-4">OFKM Component Registry</h1>
+  <p class="text-xl text-muted-foreground">A personal collection of custom shadcn-svelte components</p>
 </header>
 
 <div class="max-w-none">
-  <p class="leading-7 [&:not(:first-child)]:mt-6">
-    A collection of custom components that extend the shadcn-svelte ecosystem. These components follow the same principles as shadcn-svelte but are created for projects I work on that fit the needs of those scenarios.
+  <div class="rounded-lg border border-amber-200 bg-amber-50 p-4 mb-6 dark:border-amber-800 dark:bg-amber-950/50">
+    <p class="text-sm text-amber-800 dark:text-amber-200">
+      <strong>Note:</strong> This is a personal component registry and is not affiliated with the official
+      <a href="https://ui.shadcn.com" class="underline hover:no-underline" target="_blank" rel="noopener noreferrer">shadcn/ui</a> or
+      <a href="https://shadcn-svelte.com" class="underline hover:no-underline" target="_blank" rel="noopener noreferrer">shadcn-svelte</a> projects.
+    </p>
+  </div>
+
+  <p class="leading-7 text-lg [&:not(:first-child)]:mt-6">
+    This is my personal collection of custom components built on top of the shadcn-svelte ecosystem. These components solve specific needs I've encountered in my projects that aren't covered by the official library.
   </p>
 
-  <p class="leading-7 [&:not(:first-child)]:mt-6">
-    <strong>This is not a component library.</strong> It's a collection of components that you can copy and paste into your apps and customize to fit your needs.
-  </p>
-
-  <p class="leading-7 [&:not(:first-child)]:mt-6">You know how most traditional component libraries work: you install a package from NPM, import the components, and use them in your app.</p>
-
-  <p class="leading-7 [&:not(:first-child)]:mt-6">
-    This approach works well until you need to customize a component to fit your design system or require functionality that isn't included in the library. Often, you end up wrapping library components, writing workarounds to override styles, or
-    mixing components from different libraries with incompatible APIs.
-  </p>
-
-  <p class="leading-7 [&:not(:first-child)]:mt-6">This is what this registry aims to solve. It is built around the same principles as shadcn-svelte:</p>
+  <h2 class="font-heading mt-8 scroll-m-20 text-2xl font-semibold tracking-tight first:mt-0">What is this?</h2>
+  <p class="leading-7 [&:not(:first-child)]:mt-6">This registry contains custom components that follow the same patterns and principles as shadcn-svelte:</p>
 
   <ul class="my-6 ml-6 list-disc [&>li]:mt-2">
-    <li><strong>Open Code:</strong> The component code is open for modification.</li>
-    <li><strong>Composition:</strong> Components use a common, composable interface.</li>
-    <li><strong>Distribution:</strong> Easy to install via the shadcn-svelte CLI.</li>
-    <li><strong>Beautiful Defaults:</strong> Carefully chosen default styles.</li>
-    <li><strong>Customizable:</strong> Full control to modify components as needed.</li>
+    <li>Built with <a href="https://www.bits-ui.com" class="underline hover:no-underline" target="_blank" rel="noopener noreferrer">Bits UI</a> primitives</li>
+    <li>Styled with <a href="https://tailwindcss.com" class="underline hover:no-underline" target="_blank" rel="noopener noreferrer">Tailwind CSS</a></li>
+    <li>Copy-paste friendly code</li>
+    <li>Fully customizable and accessible</li>
   </ul>
 
-  <h2 class="font-heading mt-12 scroll-m-20 border-b pb-2 text-2xl font-semibold tracking-tight first:mt-0">Open Code</h2>
-  <p class="leading-7 [&:not(:first-child)]:mt-6">These components give you the actual component code. You have full control to customize and extend the components to your needs. This means:</p>
+  <h2 class="font-heading mt-8 scroll-m-20 text-2xl font-semibold tracking-tight first:mt-0">How to use</h2>
+  <p class="leading-7 [&:not(:first-child)]:mt-6">You can install components using the shadcn-svelte CLI by pointing to this registry:</p>
+
+  <div class="my-6 rounded-lg bg-muted p-4">
+    <code class="text-sm">npx shadcn-svelte add https://shadcn.ofkm.dev/r/<strong>[component-name]</strong>.json</code>
+  </div>
+
+  <p class="leading-7 [&:not(:first-child)]:mt-6">Or browse the components in the sidebar to see examples and copy the code directly.</p>
+
+  <h2 class="font-heading mt-8 scroll-m-20 text-2xl font-semibold tracking-tight first:mt-0">Available Components</h2>
+  <p class="leading-7 [&:not(:first-child)]:mt-6">Each component is designed to solve a specific use case:</p>
 
   <ul class="my-6 ml-6 list-disc [&>li]:mt-2">
-    <li><strong>Full Transparency:</strong> You see exactly how each component is built.</li>
-    <li><strong>Easy Customization:</strong> Modify any part of a component to fit your design and functionality requirements.</li>
-    <li><strong>No Vendor Lock-in:</strong> The code is yours to own and modify.</li>
+    <li><strong>Dropdown Button</strong> - Split button with dropdown menu functionality</li>
+    <li><strong>Collapsible Card</strong> - Modern collapsible content containers</li>
+    <li><strong>Labeled Switch</strong> - Switches with integrated labels and descriptions</li>
+    <li><strong>Status Badge</strong> - GitHub-style status badges</li>
+    <li><strong>Meter</strong> - Progress indicators with multiple variants</li>
   </ul>
 
-  <p class="leading-7 [&:not(:first-child)]:mt-6">In a typical library, if you need to change a component's behavior, you have to override styles or wrap the component. With these components, you simply edit the code directly.</p>
-
-  <h2 class="font-heading mt-12 scroll-m-20 border-b pb-2 text-2xl font-semibold tracking-tight first:mt-0">Composition</h2>
-  <p class="leading-7 [&:not(:first-child)]:mt-6">Every component follows the same patterns as shadcn-svelte. They use a common, composable interface built on top of Bits UI primitives. This makes them predictable and easy to understand.</p>
-
-  <p class="leading-7 [&:not(:first-child)]:mt-6">A shared, composable interface means you're not learning different APIs for every new component. The patterns are consistent across all components.</p>
-
-  <h2 class="font-heading mt-12 scroll-m-20 border-b pb-2 text-2xl font-semibold tracking-tight first:mt-0">Distribution</h2>
-  <p class="leading-7 [&:not(:first-child)]:mt-6">Components are distributed using the same system as shadcn-svelte:</p>
-
-  <ul class="my-6 ml-6 list-disc [&>li]:mt-2">
-    <li><strong>Schema:</strong> A flat-file structure that defines components and their dependencies.</li>
-    <li><strong>CLI:</strong> Install components using the shadcn-svelte command-line tool.</li>
-  </ul>
-
-  <p class="leading-7 [&:not(:first-child)]:mt-6">You can install any component with a single command and it will be added to your project with all necessary files and dependencies.</p>
+  <p class="leading-7 [&:not(:first-child)]:mt-6">All components follow the same patterns you're familiar with from shadcn-svelte, so they'll feel natural to use in your projects.</p>
 </div>

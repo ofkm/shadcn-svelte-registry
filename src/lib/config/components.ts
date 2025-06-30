@@ -4,6 +4,7 @@ import DropdownButtonDemo from '$lib/components/demos/dropdown-button-demo.svelt
 import StatusBadgeDemo from '$lib/components/demos/status-badge-demo.svelte';
 import MeterDemo from '$lib/components/demos/meter-demo.svelte';
 import LabeledSwitchDemo from '$lib/components/demos/labeled-switch-demo.svelte';
+import CollapsibleCardDemo from '$lib/components/demos/collapsible-card-demo.svelte';
 
 export type ComponentConfig = {
   name: string;
@@ -83,6 +84,55 @@ export const componentsConfig: ComponentConfig[] = [
     ],
   },
   {
+    name: 'collapsible-card',
+    title: 'Collapsible Card',
+    description: 'A modern collapsible card component with simple and composable modes',
+    component: CollapsibleCardDemo,
+    href: '/docs/collapsible-card',
+    registryName: 'collapsible-card',
+    props: [
+      {
+        name: 'ref',
+        type: 'HTMLDivElement',
+        bindable: true,
+        description: 'The underlying DOM element',
+      },
+      {
+        name: 'title',
+        type: 'string',
+        description: 'The title text for the card header (simple mode)',
+      },
+      {
+        name: 'subtitle',
+        type: 'string',
+        description: 'Optional subtitle text below the title (simple mode)',
+      },
+      {
+        name: 'defaultOpen',
+        type: 'boolean',
+        default: 'false',
+        description: 'Whether the card is open by default (simple mode)',
+      },
+      {
+        name: 'disabled',
+        type: 'boolean',
+        default: 'false',
+        description: 'Whether the card is disabled (simple mode)',
+      },
+      {
+        name: 'simple',
+        type: 'boolean',
+        default: 'false',
+        description: 'Force simple mode (auto-detected if title is provided)',
+      },
+      {
+        name: 'class',
+        type: 'string',
+        description: 'Additional CSS classes',
+      },
+    ],
+  },
+  {
     name: 'labeled-switch',
     title: 'Labeled Switch',
     description: 'A switch component with integrated label and optional description',
@@ -144,6 +194,7 @@ export const componentsConfig: ComponentConfig[] = [
         name: 'value',
         type: 'number',
         required: true,
+        bindable: true,
         description: 'The current value of the meter',
       },
       {

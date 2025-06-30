@@ -3,10 +3,19 @@
   import { page } from '$app/state';
   import type { SidebarNavItem } from '$lib/config/navigation';
   import type { ComponentProps } from 'svelte';
+  import { BookOpen, Layers, Palette } from '@lucide/svelte';
+  import { Button } from '$lib/registry/ui/button/index.js';
 
   let { navItems, ...restProps }: { navItems: SidebarNavItem[] } & ComponentProps<typeof Sidebar.Root> = $props();
 
   const pathname = $derived(page.url.pathname);
+
+  // Map section titles to icons
+  const sectionIcons: Record<string, any> = {
+    'Get Started': BookOpen,
+    Components: Layers,
+    Icons: Palette,
+  };
 
   function handleAnchorClick(event: Event, href: string) {
     if (href.startsWith('#')) {
@@ -19,41 +28,52 @@
   }
 </script>
 
-<Sidebar.Root class="sticky top-[calc(var(--header-height)+1px)] z-30 hidden h-[calc(100svh-var(--header-height)-var(--footer-height))] bg-transparent lg:flex" collapsible="none" {...restProps}>
-  <Sidebar.Content class="no-scrollbar px-2 pb-12">
-    <div class="h-(--top-spacing) shrink-0"></div>
-    {#each navItems as item (item.title)}
-      <Sidebar.Group>
-        <Sidebar.GroupLabel class="text-muted-foreground font-medium">
-          {item.title}
-        </Sidebar.GroupLabel>
-        <Sidebar.GroupContent>
-          {#if item.items.length}
-            <Sidebar.Menu class="gap-0.5">
-              {#each item.items as subItem (subItem.href)}
-                {#if subItem.items.length === 0}
-                  <Sidebar.MenuItem>
-                    <Sidebar.MenuButton
-                      isActive={subItem.href === pathname || (subItem.anchor && pathname === '/')}
-                      class="data-[active=true]:bg-accent data-[active=true]:border-accent 3xl:fixed:w-full 3xl:fixed:max-w-48 relative h-[30px] w-fit overflow-visible border border-transparent text-[0.8rem] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md"
-                    >
-                      {#snippet child({ props })}
-                        {#if subItem.anchor}
-                          <a href={subItem.href} {...props} onclick={(e) => subItem.href && handleAnchorClick(e, subItem.href)}>
-                            {subItem.title}
-                          </a>
-                        {:else}
-                          <a href={subItem.href} {...props}>{subItem.title}</a>
-                        {/if}
-                      {/snippet}
-                    </Sidebar.MenuButton>
-                  </Sidebar.MenuItem>
-                {/if}
-              {/each}
-            </Sidebar.Menu>
-          {/if}
-        </Sidebar.GroupContent>
-      </Sidebar.Group>
-    {/each}
+<Sidebar.Root class="fixed top-14 z-30 hidden h-[calc(100vh-3.5rem)] w-64 border-r border-border bg-background lg:flex" collapsible="none" {...restProps}>
+  <Sidebar.Content class="flex flex-col p-4">
+    <div class="flex-1 space-y-6">
+      {#each navItems as item (item.title)}
+        <Sidebar.Group>
+          <Sidebar.GroupLabel class="mb-2 flex items-center space-x-2 text-xs font-medium uppercase tracking-wide text-muted-foreground">
+            {#if sectionIcons[item.title]}
+              {@const SectionIcon = sectionIcons[item.title]}
+              <SectionIcon class="h-4 w-4" />
+            {/if}
+            <span>{item.title}</span>
+          </Sidebar.GroupLabel>
+          <Sidebar.GroupContent>
+            {#if item.items.length}
+              <Sidebar.Menu class="space-y-0.5">
+                {#each item.items as subItem (subItem.href)}
+                  {#if subItem.items.length === 0}
+                    <Sidebar.MenuItem>
+                      {#if subItem.anchor}
+                        <a
+                          href={subItem.href}
+                          onclick={(e) => subItem.href && handleAnchorClick(e, subItem.href)}
+                          class="block w-full rounded-md px-2 py-1.5 text-sm transition-colors hover:bg-muted/50 {subItem.href === pathname ? 'bg-muted font-medium text-foreground' : 'text-muted-foreground'}"
+                        >
+                          {subItem.title}
+                        </a>
+                      {:else}
+                        <a href={subItem.href} class="block w-full rounded-md px-2 py-1.5 text-sm transition-colors hover:bg-muted/50 {subItem.href === pathname ? 'bg-muted font-medium text-foreground' : 'text-muted-foreground'}">
+                          {subItem.title}
+                        </a>
+                      {/if}
+                    </Sidebar.MenuItem>
+                  {/if}
+                {/each}
+              </Sidebar.Menu>
+            {/if}
+          </Sidebar.GroupContent>
+        </Sidebar.Group>
+      {/each}
+    </div>
+
+    <div class="mt-auto border-t border-border pt-4">
+      <div class="rounded-lg border border-dashed border-border p-3 text-center">
+        <p class="text-xs text-muted-foreground">Checkout the amazing original shadcn-svelte project</p>
+        <Button class="mt-2 rounded-md border border-border px-3 h-7 text-xs transition-colors hover:bg-muted" variant="outline" onclick={() => (window.location.href = 'https://shadcn-svelte.com/')}>shadcn-svelte</Button>
+      </div>
+    </div>
   </Sidebar.Content>
 </Sidebar.Root>
