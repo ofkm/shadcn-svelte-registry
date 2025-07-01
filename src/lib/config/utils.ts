@@ -1,6 +1,7 @@
 import type { Component } from 'svelte';
 import type { PropDefinition } from '$lib/components/prop-defintion.svelte';
 import TableStatesDemo from '$lib/components/demos/table-states-demo.svelte';
+import IsMobileDemo from '$lib/components/demos/is-mobile-demo.svelte';
 
 export type UtilConfig = {
   name: string;
@@ -77,6 +78,37 @@ export const utilsConfig: UtilConfig[] = [
         type: 'number',
         default: '1',
         description: 'Current page number',
+      },
+    ],
+  },
+  {
+    name: 'is-mobile',
+    title: 'Is Mobile Hook',
+    description: "A reactive hook for detecting mobile screen sizes using Svelte's MediaQuery",
+    component: IsMobileDemo,
+    href: '/docs/utils/is-mobile',
+    registryName: 'is-mobile',
+    new: true,
+    functions: [
+      {
+        name: 'IsMobile',
+        description: 'Class that extends MediaQuery for mobile detection',
+        signature: 'new IsMobile(breakpoint?: number)',
+        returns: 'IsMobile instance',
+        example: 'const isMobile = new IsMobile(768);',
+      },
+    ],
+    props: [
+      {
+        name: 'breakpoint',
+        type: 'number',
+        default: '768',
+        description: 'The screen width (in pixels) below which the device is considered mobile',
+      },
+      {
+        name: 'current',
+        type: 'boolean',
+        description: 'Reactive property that indicates if the current screen size matches the mobile breakpoint',
       },
     ],
   },

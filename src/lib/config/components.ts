@@ -5,6 +5,7 @@ import StatusBadgeDemo from '$lib/components/demos/status-badge-demo.svelte';
 import MeterDemo from '$lib/components/demos/meter-demo.svelte';
 import LabeledSwitchDemo from '$lib/components/demos/labeled-switch-demo.svelte';
 import CollapsibleCardDemo from '$lib/components/demos/collapsible-card-demo.svelte';
+import HeaderDemo from '$lib/components/demos/header-demo.svelte';
 
 export type ComponentConfig = {
   name: string;
@@ -91,7 +92,7 @@ export const componentsConfig: ComponentConfig[] = [
     component: CollapsibleCardDemo,
     href: '/docs/collapsible-card',
     registryName: 'collapsible-card',
-    new: true,
+    new: false,
     props: [
       {
         name: 'ref',
@@ -272,6 +273,52 @@ export const componentsConfig: ComponentConfig[] = [
         type: "'red' | 'purple' | 'green' | 'blue' | 'gray' | 'amber' | 'pink' | 'indigo' | 'cyan' | 'lime' | 'emerald' | 'teal' | 'sky' | 'violet' | 'fuchsia' | 'rose' | 'orange'",
         default: 'gray',
         description: 'The color variant of the badge',
+      },
+      {
+        name: 'class',
+        type: 'string',
+        description: 'Additional CSS classes',
+      },
+    ],
+  },
+  {
+    name: 'header',
+    title: 'Header',
+    description: 'A flexible header component with multiple variants and composable parts',
+    component: HeaderDemo,
+    href: '/docs/header',
+    registryName: 'header',
+    new: true,
+    props: [
+      {
+        name: 'ref',
+        type: 'HTMLElement',
+        bindable: true,
+        description: 'The underlying DOM element',
+      },
+      {
+        name: 'variant',
+        type: "'default' | 'sticky' | 'floating'",
+        default: "'sticky'",
+        description: 'The header variant style',
+      },
+      {
+        name: 'border',
+        type: 'boolean',
+        default: 'true',
+        description: 'Whether to show a border',
+      },
+      {
+        name: 'blur',
+        type: 'boolean',
+        default: 'true',
+        description: 'Whether to apply backdrop blur effect',
+      },
+      {
+        name: 'height',
+        type: "'sm' | 'md' | 'lg'",
+        default: "'md'",
+        description: 'The height of the header (sm: 56px, md: 70px, lg: 80px)',
       },
       {
         name: 'class',
