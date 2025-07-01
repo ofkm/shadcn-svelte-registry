@@ -8,27 +8,32 @@
   const code = `<script lang="ts">
   import { Header } from '$lib/components/ui/header';
   import { Button } from '$lib/components/ui/button';
-  import { Github, Settings } from '@lucide/svelte';
+  import { Badge } from '$lib/components/ui/badge';
+  import { Github, Settings, Search } from '@lucide/svelte';
 <\/script>
 
-<!-- Basic sticky header -->
+<!-- Sticky Header -->
 <Header variant="sticky" blur border>
-  <Header.Container size="xl" padding="md">
-    <Header.Brand href="/">
+  <Header.Container size="xl">
+    <Header.Brand href="#">
       <div class="flex size-6 items-center justify-center rounded bg-foreground">
         <span class="text-xs font-bold text-background">K</span>
       </div>
-      <span class="font-bold">Your App</span>
+      <span class="font-bold">OFKM Registry</span>
     </Header.Brand>
+
+    <Header.MobileButton onclick={() => (mobileMenuOpen = !mobileMenuOpen)} />
 
     <Header.Spacer />
 
-    <Header.Nav>
-      <Button variant="ghost" size="sm" href="/docs">Docs</Button>
-      <Button variant="ghost" size="sm" href="/components">Components</Button>
+    <Header.Nav class="hidden md:flex">
+      <Button variant="ghost" size="sm">Docs</Button>
     </Header.Nav>
 
     <Header.Actions>
+      <Button variant="ghost" size="sm">
+        <Search class="size-4" />
+      </Button>
       <Button variant="ghost" size="sm">
         <Github class="size-4" />
       </Button>
@@ -39,14 +44,36 @@
   </Header.Container>
 </Header>
 
-<!-- Floating header -->
-<Header variant="floating" blur border>
-  <Header.Container size="md" padding="sm">
-    <Header.Brand>Logo</Header.Brand>
+<!-- Floating Header -->
+<Header variant="floating" blur border class="!absolute !top-4 !left-1/2 !-translate-x-1/2 !z-10">
+  <Header.Container size="md">
+    <Header.Brand>
+      <Badge variant="outline">New</Badge>
+      <span class="font-semibold">Floating Header</span>
+    </Header.Brand>
+
     <Header.Spacer />
+
     <Header.Actions>
+      <Button size="sm" variant="outline">Learn More</Button>
       <Button size="sm">Get Started</Button>
     </Header.Actions>
+  </Header.Container>
+</Header>
+
+<!-- Simple Header -->
+<Header variant="default" border={false} blur={false}>
+  <Header.Container size="lg">
+    <Header.Brand>
+      <span class="text-xl font-bold">Simple</span>
+    </Header.Brand>
+
+    <Header.Spacer />
+
+    <Header.Nav>
+      <Button variant="link" size="sm">About</Button>
+      <Button variant="link" size="sm">Contact</Button>
+    </Header.Nav>
   </Header.Container>
 </Header>`;
 
