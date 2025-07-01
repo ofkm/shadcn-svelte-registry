@@ -132,15 +132,13 @@
         <Header variant="floating" blur border class="!absolute !top-4 !left-1/2 !-translate-x-1/2 !z-10">
           <Header.Container size="md">
             <Header.Brand>
-              <Badge variant="outline">New</Badge>
               <span class="font-semibold">Floating Header</span>
             </Header.Brand>
 
             <Header.Spacer />
 
             <Header.Actions>
-              <Button size="sm" variant="outline">Learn More</Button>
-              <Button size="sm">Get Started</Button>
+              <Button size="sm">Login</Button>
             </Header.Actions>
           </Header.Container>
         </Header>
