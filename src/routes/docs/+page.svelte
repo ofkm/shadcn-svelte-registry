@@ -1,5 +1,5 @@
 <script lang="ts">
-  // Remove Button and ArrowRight imports since navigation is now in layout
+  import { Snippet } from '$lib/components/ui/snippet';
 </script>
 
 <svelte:head>
@@ -38,9 +38,7 @@
   <h2 class="font-heading mt-8 scroll-m-20 text-2xl font-semibold tracking-tight first:mt-0">How to use</h2>
   <p class="leading-7 [&:not(:first-child)]:mt-6">You can install components using the shadcn-svelte CLI by pointing to this registry:</p>
 
-  <div class="my-6 rounded-lg bg-muted p-4">
-    <code class="text-sm">npx shadcn-svelte add https://shadcn.ofkm.dev/r/<strong>[component-name]</strong>.json</code>
-  </div>
+  <Snippet text="npx shadcn-svelte add https://shadcn.ofkm.dev/r/[component-name].json" class="w-full my-6  p-4" />
 
   <p class="leading-7 [&:not(:first-child)]:mt-6">Or browse the components in the sidebar to see examples and copy the code directly.</p>
 

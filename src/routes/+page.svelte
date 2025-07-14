@@ -8,7 +8,6 @@
   import Meter from '$lib/registry/ui/meter/meter.svelte';
   import { ArrowRight, Github } from '@lucide/svelte';
 
-  // Demo options for dropdown button
   const options = [
     { label: 'Save as Draft', value: 'draft', onclick: () => {} },
     { label: 'Save and Publish', value: 'publish', onclick: () => {} },
@@ -28,8 +27,8 @@
   <div class="mx-auto max-w-7xl px-4 lg:px-8">
     <div class="mx-auto max-w-3xl text-center">
       <Badge variant="secondary" class="mb-6">Personal Component Registry</Badge>
-      <h1 class="text-4xl font-bold tracking-tight text-foreground sm:text-6xl lg:text-7xl">Custom Components</h1>
-      <p class="mt-6 text-xl leading-8 text-muted-foreground max-w-2xl mx-auto">A personal collection of shadcn-svelte components. Built with Bits UI, styled with Tailwind CSS.</p>
+      <h1 class="text-4xl font-bold tracking-tight text-foreground sm:text-6xl lg:text-7xl">Custom Svelte Components</h1>
+      <p class="mt-6 text-xl leading-8 text-muted-foreground max-w-2xl mx-auto">A personal collection of shadcn-svelte components. Built with Svelte 5, Tailwind CSS, Bits UI Primitives, and shadcn-svelte.</p>
       <p class="mt-3 text-sm text-muted-foreground">Not affiliated with official shadcn projects • Props to the shadcn-svelte team</p>
 
       <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -120,8 +119,7 @@
               <path
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 14.5M9.75 3.104L19.8 14.5m0 0l-5.25 5.25a2.25 2.25 0 01-3.182 0M19.8 14.5l-5.25 5.25"
-              />
+                d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 14.5M9.75 3.104L19.8 14.5m0 0l-5.25 5.25a2.25 2.25 0 01-3.182 0M19.8 14.5l-5.25 5.25" />
             </svg>
           </div>
           <h3 class="text-lg font-semibold mb-2">Built with Bits UI</h3>
@@ -134,8 +132,7 @@
               <path
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                d="M4.5 12a7.5 7.5 0 0015 0m-15 0a7.5 7.5 0 1115 0m-15 0H3m16.5 0H21m-1.5 0H12m-8.457 3.077l1.41-.513m14.095-5.13l1.41-.513M5.106 17.785l1.15-.964m11.49-9.642l1.149-.964M7.501 19.795l.75-1.3m7.5-12.99l.75-1.3m-6.063 16.658l.26-1.477m2.605-14.772l.26-1.477m0 17.726l-.26-1.477M10.698 4.614l-.26-1.477M16.5 19.794l-.75-1.299M7.5 4.205L12 12m6.894 5.785l-1.149-.964M6.256 7.178l-1.15-.964m15.352 8.864l-1.41-.513M4.954 9.435l-1.41-.514M12.002 12l-3.75 6.495"
-              />
+                d="M4.5 12a7.5 7.5 0 0015 0m-15 0a7.5 7.5 0 1115 0m-15 0H3m16.5 0H21m-1.5 0H12m-8.457 3.077l1.41-.513m14.095-5.13l1.41-.513M5.106 17.785l1.15-.964m11.49-9.642l1.149-.964M7.501 19.795l.75-1.3m7.5-12.99l.75-1.3m-6.063 16.658l.26-1.477m2.605-14.772l.26-1.477m0 17.726l-.26-1.477M10.698 4.614l-.26-1.477M16.5 19.794l-.75-1.299M7.5 4.205L12 12m6.894 5.785l-1.149-.964M6.256 7.178l-1.15-.964m15.352 8.864l-1.41-.513M4.954 9.435l-1.41-.514M12.002 12l-3.75 6.495" />
             </svg>
           </div>
           <h3 class="text-lg font-semibold mb-2">Fully Customizable</h3>
