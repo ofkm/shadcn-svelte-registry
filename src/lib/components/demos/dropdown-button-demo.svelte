@@ -1,56 +1,41 @@
 <script lang="ts">
-  import { DropdownButton } from '$lib/registry/ui/dropdown-button/index.js';
+  import * as DropdownButton from '$lib/registry/ui/dropdown-button/index.js';
   import { DemoTabs } from '$lib/components/demo-tabs/index.js';
 
   const code = `<script lang="ts">
-import { DropdownButton } from '$lib/registry/ui/dropdown-button/index.js';
-
-const options = [
-  { 
-    label: 'Save as Draft', 
-    value: 'draft',
-    onclick: () => console.log('Draft saved')
-  },
-  { 
-    label: 'Save and Publish', 
-    value: 'publish',
-    onclick: () => console.log('Published')
-  },
-  {
-    label: 'Save Template',
-    value: 'template',
-    onclick: () => console.log('Template saved')
-  }
-];
+import * as DropdownButton from '$lib/registry/ui/dropdown-button/index.js';
 
 function handleMainSave() {
   console.log('Main save clicked');
 }
 <\/script>
 
-<DropdownButton 
-  mainButtonText="Actions" 
-  {options} 
-  variant="outline" 
-/>`;
+<DropdownButton.DropdownRoot>
+  <DropdownButton.Root variant="outline" align="end">
+    <DropdownButton.Main onclick={handleMainSave}>
+      Actions
+    </DropdownButton.Main>
 
-  const options = [
-    {
-      label: 'Save as Draft',
-      value: 'draft',
-      onclick: () => console.log('Draft saved'),
-    },
-    {
-      label: 'Save and Publish',
-      value: 'publish',
-      onclick: () => console.log('Published'),
-    },
-    {
-      label: 'Save Template',
-      value: 'template',
-      onclick: () => console.log('Template saved'),
-    },
-  ];
+    <DropdownButton.DropdownTrigger>
+      {#snippet child({ props })}
+        <DropdownButton.Trigger {...props} />
+      {/snippet}
+    </DropdownButton.DropdownTrigger>
+  </DropdownButton.Root>
+
+  <DropdownButton.Content>
+    <DropdownButton.Item onclick={() => console.log('Draft saved')}>
+      Save as Draft
+    </DropdownButton.Item>
+    <DropdownButton.Item onclick={() => console.log('Published')}>
+      Save and Publish
+    </DropdownButton.Item>
+    <DropdownButton.Separator />
+    <DropdownButton.Item onclick={() => console.log('Template saved')}>
+      Save Template
+    </DropdownButton.Item>
+  </DropdownButton.Content>
+</DropdownButton.DropdownRoot>`;
 
   function handleMainSave() {
     console.log('Main save clicked');
@@ -59,6 +44,23 @@ function handleMainSave() {
 
 <DemoTabs {code}>
   <div class="space-y-4 items-center">
-    <DropdownButton mainButtonText="Actions" {options} onMainButtonClick={handleMainSave} variant="outline" />
+    <DropdownButton.DropdownRoot>
+      <DropdownButton.Root variant="outline" align="end">
+        <DropdownButton.Main onclick={handleMainSave}>Actions</DropdownButton.Main>
+
+        <DropdownButton.DropdownTrigger>
+          {#snippet child({ props })}
+            <DropdownButton.Trigger {...props} />
+          {/snippet}
+        </DropdownButton.DropdownTrigger>
+      </DropdownButton.Root>
+
+      <DropdownButton.Content>
+        <DropdownButton.Item onclick={() => console.log('Draft saved')}>Save as Draft</DropdownButton.Item>
+        <DropdownButton.Item onclick={() => console.log('Published')}>Save and Publish</DropdownButton.Item>
+        <DropdownButton.Separator />
+        <DropdownButton.Item onclick={() => console.log('Template saved')}>Save Template</DropdownButton.Item>
+      </DropdownButton.Content>
+    </DropdownButton.DropdownRoot>
   </div>
 </DemoTabs>
