@@ -5,5 +5,5 @@
 Replace <component> with the specific component from the registry.
 
 ```bash
-npx shadcn-svelte@latest add https://shadcn.ofkm.dev/r/<component>.json
+pnpm dlx shadcn-svelte@latest add https://shadcn.ofkm.dev/r/<component>.json
 ```
