@@ -6,7 +6,7 @@ import { Context } from "runed";
 import type { ReadableBoxedValues, WritableBoxedValues } from "svelte-toolbelt";
 import type { CodeRootProps } from "./types";
 import { highlighter } from "./shiki";
-import DOMPurify from "isomorphic-dompurify";
+import { browser } from "$app/environment";
 import type { HighlighterCore } from "shiki";
 
 type CodeOverflowStateProps = WritableBoxedValues<{
@@ -36,6 +36,8 @@ type CodeRootStateProps = ReadableBoxedValues<{
 
 class CodeRootState {
   highlighter: HighlighterCore | null = $state(null);
+  // sanitizer defaults to identity on SSR; replaced on client after dynamic import
+  sanitizer: (html: string) => string = $state((html: string) => html);
 
   constructor(
     readonly opts: CodeRootStateProps,
@@ -79,7 +81,8 @@ class CodeRootState {
     return this.opts.code.current;
   }
 
-  highlighted = $derived(DOMPurify.sanitize(this.highlight(this.code) ?? ""));
+  // compute highlighted HTML and sanitize using the current sanitizer
+  highlighted = $derived(this.sanitizer(this.highlight(this.code) ?? ""));
 }
 
 function within(num: number, range: CodeRootProps["highlight"]) {
@@ -130,7 +133,32 @@ export function useCode(props: CodeRootStateProps) {
     // ignore
   }
 
-  return ctx.set(new CodeRootState(props, overflow));
+  const state = new CodeRootState(props, overflow);
+
+  // On the client, dynamically import DOMPurify to avoid SSR bundling issues
+  if (browser) {
+    // dynamic import ensures cssstyle/jsdom-like deps are never included in SSR bundle
+    import("isomorphic-dompurify")
+      .then((mod: any) => {
+        const dp = mod?.default ?? mod;
+        // Two common shapes: a ready instance with .sanitize, or a factory requiring window
+        if (dp?.sanitize) {
+          state.sanitizer = dp.sanitize.bind(dp);
+        } else if (typeof dp === "function") {
+          try {
+            const instance = dp(window as any);
+            state.sanitizer = instance.sanitize.bind(instance);
+          } catch {
+            // ignore if window not available for some reason
+          }
+        }
+      })
+      .catch(() => {
+        // keep identity sanitizer on failure
+      });
+  }
+
+  return ctx.set(state);
 }
 
 export function useCodeCopyButton() {
