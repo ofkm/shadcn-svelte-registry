@@ -134,48 +134,6 @@
       ]
     },
     {
-      "name": "header",
-      "type": "registry:ui",
-      "title": "Header",
-      "dependencies": ["@lucide/svelte", "bits-ui"],
-      "registryDependencies": ["button", "is-mobile"],
-      "description": "A flexible header component with multiple variants and composable parts including sticky, floating, and default layouts",
-      "files": [
-        {
-          "path": "src/lib/registry/ui/header/header.svelte",
-          "type": "registry:ui"
-        },
-        {
-          "path": "src/lib/registry/ui/header/header-container.svelte",
-          "type": "registry:ui"
-        },
-        {
-          "path": "src/lib/registry/ui/header/header-brand.svelte",
-          "type": "registry:ui"
-        },
-        {
-          "path": "src/lib/registry/ui/header/header-nav.svelte",
-          "type": "registry:ui"
-        },
-        {
-          "path": "src/lib/registry/ui/header/header-actions.svelte",
-          "type": "registry:ui"
-        },
-        {
-          "path": "src/lib/registry/ui/header/header-mobile-button.svelte",
-          "type": "registry:ui"
-        },
-        {
-          "path": "src/lib/registry/ui/header/header-spacer.svelte",
-          "type": "registry:ui"
-        },
-        {
-          "path": "src/lib/registry/ui/header/index.ts",
-          "type": "registry:ui"
-        }
-      ]
-    },
-    {
       "name": "is-mobile",
       "type": "registry:hook",
       "title": "Is Mobile Hook",
