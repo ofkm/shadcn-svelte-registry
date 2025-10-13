@@ -1,6 +1,7 @@
 <script lang="ts">
   import * as Code from '$lib/components/ui/code';
   import * as Tabs from '$lib/components/ui/tabs/index.js';
+  import { CopyButton } from '$lib/components/ui/copy-button';
 
   let {
     code,
@@ -16,10 +17,14 @@
 <Tabs.Root value="preview" class="w-full {className}">
   <div class="flex items-center justify-start mb-4">
     <Tabs.List class="grid w-fit grid-cols-2 bg-transparent p-0 gap-1">
-      <Tabs.Trigger value="preview" class="rounded-md px-4 py-2 text-sm font-medium transition-all data-[state=active]:bg-foreground data-[state=active]:text-background data-[state=inactive]:text-muted-foreground hover:text-foreground">
+      <Tabs.Trigger
+        value="preview"
+        class="rounded-md px-4 py-2 text-sm font-medium transition-all data-[state=active]:bg-foreground data-[state=active]:text-background data-[state=inactive]:text-muted-foreground hover:text-foreground">
         Preview
       </Tabs.Trigger>
-      <Tabs.Trigger value="code" class="rounded-md px-4 py-2 text-sm font-medium transition-all data-[state=active]:bg-foreground data-[state=active]:text-background data-[state=inactive]:text-muted-foreground hover:text-foreground">
+      <Tabs.Trigger
+        value="code"
+        class="rounded-md px-4 py-2 text-sm font-medium transition-all data-[state=active]:bg-foreground data-[state=active]:text-background data-[state=inactive]:text-muted-foreground hover:text-foreground">
         Code
       </Tabs.Trigger>
     </Tabs.List>
@@ -36,8 +41,12 @@
 
   <Tabs.Content value="code" class="mt-0">
     <div class="relative overflow-hidden rounded-lg border bg-card">
+      <div class="flex items-center justify-between border-b border-border px-4 py-2 bg-muted/30">
+        <span class="text-sm font-medium text-muted-foreground">Code</span>
+        <CopyButton text={code} variant="ghost" size="sm" />
+      </div>
       <Code.Overflow>
-        <Code.Root lang="svelte" class="overflow-auto rounded-lg border-0 bg-card" {code}></Code.Root>
+        <Code.Root lang="svelte" class="overflow-auto rounded-t-none border-0 bg-card" {code}></Code.Root>
       </Code.Overflow>
     </div>
   </Tabs.Content>

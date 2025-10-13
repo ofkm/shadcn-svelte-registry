@@ -5,6 +5,7 @@ import StatusBadgeDemo from '$lib/components/demos/status-badge-demo.svelte';
 import MeterDemo from '$lib/components/demos/meter-demo.svelte';
 import LabeledSwitchDemo from '$lib/components/demos/labeled-switch-demo.svelte';
 import CollapsibleCardDemo from '$lib/components/demos/collapsible-card-demo.svelte';
+import AccentColorPickerDemo from '$lib/components/demos/accent-color-picker-demo.svelte';
 
 export type ComponentConfig = {
   name: string;
@@ -256,6 +257,57 @@ export const componentsConfig: ComponentConfig[] = [
         name: 'class',
         type: 'string',
         description: 'Additional CSS classes',
+      },
+    ],
+  },
+  {
+    name: 'accent-color-picker',
+    title: 'Accent Color Picker',
+    description: 'A customizable color picker for selecting accent colors with predefined options and custom color support',
+    component: AccentColorPickerDemo,
+    href: '/docs/accent-color-picker',
+    registryName: 'accent-color-picker',
+    new: true,
+    props: [
+      {
+        name: 'ref',
+        type: 'HTMLDivElement',
+        bindable: true,
+        description: 'The underlying DOM element for the Root wrapper',
+      },
+      {
+        name: 'colors',
+        type: 'AccentColor[]',
+        default: 'defaultAccentColors',
+        description: 'Array of predefined colors to display',
+      },
+      {
+        name: 'selectedColor',
+        type: 'string',
+        bindable: true,
+        description: 'The currently selected color value (bindable)',
+      },
+      {
+        name: 'previousColor',
+        type: 'string',
+        default: "''",
+        description: 'Previous custom color to display in the picker',
+      },
+      {
+        name: 'disabled',
+        type: 'boolean',
+        default: 'false',
+        description: 'Disables the color picker',
+      },
+      {
+        name: 'onColorChange',
+        type: '(color: string) => void',
+        description: 'Callback function when color changes',
+      },
+      {
+        name: 'class',
+        type: 'string',
+        description: 'Additional CSS classes for the Root wrapper',
       },
     ],
   },

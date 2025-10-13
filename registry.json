@@ -160,6 +160,32 @@
           "type": "registry:lib"
         }
       ]
+    },
+    {
+      "name": "accent-color-picker",
+      "type": "registry:ui",
+      "title": "Accent Color Picker",
+      "dependencies": ["@lucide/svelte", "bits-ui"],
+      "registryDependencies": ["button", "input"],
+      "description": "A customizable color picker for selecting accent colors with predefined options and custom color support",
+      "files": [
+        {
+          "path": "src/lib/registry/ui/accent-color-picker/accent-color-picker.svelte",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/lib/registry/ui/accent-color-picker/accent-color-item.svelte",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/lib/registry/ui/accent-color-picker/accent-color-custom-dialog.svelte",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/lib/registry/ui/accent-color-picker/index.ts",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }

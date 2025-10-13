@@ -18,7 +18,7 @@
   <meta name="description" content="Learn how to install and set up custom shadcn-svelte components in your project." />
 </svelte:head>
 
-<header class="mb-8">
+<header class="mb-8 mt-10">
   <h1 class="text-4xl font-bold tracking-tight mb-4">Installation</h1>
   <p class="text-xl text-muted-foreground">Learn how to install and use custom components in your shadcn-svelte project.</p>
 </header>
@@ -86,7 +86,9 @@
   <!-- Manual Installation -->
   <section>
     <h2 class="font-heading mt-8 scroll-m-20 text-2xl font-semibold tracking-tight first:mt-0">Manual Installation</h2>
-    <p class="leading-7 [&:not(:first-child)]:mt-6">Prefer to copy and paste? Browse any component page to see the source code and copy it directly.</p>
+    <p class="leading-7 [&:not(:first-child)]:mt-6">
+      Prefer to copy and paste? Browse any component page to see the source code and copy it directly.
+    </p>
 
     <div class="my-6">
       <Button href="/docs" variant="outline">
