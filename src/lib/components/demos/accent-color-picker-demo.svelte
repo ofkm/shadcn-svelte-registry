@@ -12,7 +12,7 @@
   }
 
   const code = `<script lang="ts">
-  import { AccentColorPicker } from '$lib/components/ui/accent-color-picker/index.js';
+  import { AccentColorPicker } from '$lib/registry/ui/accent-color-picker/index.js';
 
   let selectedColor = $state('oklch(0.606 0.25 292.717)');
   let previousColor = $state('');
