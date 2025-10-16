@@ -2,6 +2,8 @@
   import MobileNav from './mobile-nav.svelte';
   import GithubLink from './github-link.svelte';
   import ModeSwitcher from './modeswitcher.svelte';
+  import MainNav from './mainnav.svelte';
+  import { mainNavItems } from '$lib/config/navigation.js';
 </script>
 
 <header class="sticky top-0 z-50 w-full">
@@ -27,6 +29,8 @@
     </div>
 
     <MobileNav class="mr-2 flex md:hidden" />
+
+    <MainNav items={mainNavItems} class="hidden md:flex ml-6" />
 
     <div class="flex-1"></div>
 

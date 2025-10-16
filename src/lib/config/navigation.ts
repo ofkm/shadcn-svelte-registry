@@ -3,7 +3,9 @@ import { componentsConfig } from './components.js';
 import { utilsConfig } from './utils.js';
 
 export const mainNavItems = [
-  // { href: '/docs/icons', label: 'Icons' }
+  { href: '/docs/components', label: 'Components' },
+  { href: '/docs/utils', label: 'Utils' },
+  { href: '/docs/icons', label: 'Icons' },
 ];
 
 export type NavItem = {
@@ -28,6 +30,10 @@ export const SidebarNavItems: SidebarNavItem[] = [
       { title: 'Installation', href: '/docs/setup', items: [] },
     ],
   },
+];
+
+// Individual section navigation for sidebar
+export const ComponentsSidebarItems: SidebarNavItem[] = [
   {
     title: 'Components',
     items: [
@@ -39,6 +45,9 @@ export const SidebarNavItems: SidebarNavItem[] = [
       })),
     ],
   },
+];
+
+export const UtilsSidebarItems: SidebarNavItem[] = [
   {
     title: 'Utils',
     items: [
@@ -50,6 +59,9 @@ export const SidebarNavItems: SidebarNavItem[] = [
       })),
     ],
   },
+];
+
+export const IconsSidebarItems: SidebarNavItem[] = [
   {
     title: 'Icons',
     items: [
